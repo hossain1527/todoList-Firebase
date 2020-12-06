@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import TimesList from "./TimesList";
+import AddForm from "./AddForm";
+
+import firebase from "./firebase";
+
+// Test whether can sync with the Firebase database
+
+firebase.firestore().collection("times").add({
+  title: "",
+  time_seconds: "",
+});
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>To do List based on Firebase</h1>
+      <TimesList />
+      <AddForm />
     </div>
   );
 }
